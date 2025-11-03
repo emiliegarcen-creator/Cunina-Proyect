@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap');
+
+.guarderias-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 2rem;
+  background-color: #fde8ec;
+  color: #5b4a4a;
+  font-family: 'Poppins', sans-serif;
+  min-height: 90vh;
+  margin: 0;
+}
+
+/* --- ASIDE (Lista de guarderías / temas) --- */
+aside {
+  flex: 1 1 250px;
+  background-color: #fff;
+  border-radius: 15px;
+  padding: 1.5rem;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  border: 3px solid #f4a4b4;
+}
+
+aside h2 {
+  text-align: center;
+  color: #d45a7a;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+aside ul {
+  list-style: none;
+  padding: 0;
+}
+
+aside li {
+  padding: 0.9rem 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-weight: 500;
+}
+
+aside li:hover {
+  background-color: rgba(244,164,180,0.25);
+}
+
+/* --- SECTION (Contenido dinámico) --- */
+section {
+  flex: 2 1 600px;
+  background-color: #fff;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  border: 3px solid #f4a4b4;
+}
+
+h2, h3 {
+  color: #d45a7a;
+  margin-bottom: 1rem;
+}
+
+/* --- FORMULARIOS --- */
+form {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  max-width: 400px;
+}
+
+textarea,
+select {
+  width: 100%;
+  max-width: 400px;
+  padding: 0.75rem;
+  border-radius: 0.75rem;
+  border: 1px solid #f8bbd0;
+  background-color: #fff;
+  font-size: 1rem;
+  color: #5b4a4a;
+  transition: box-shadow 0.3s, border-color 0.3s;
+}
+
+textarea:focus,
+select:focus {
+  border-color: #d45a7a;
+  box-shadow: 0 0 6px rgba(212, 90, 122, 0.3);
+  outline: none;
+}
+
+button {
+  align-self: flex-end;
+  padding: 0.6rem 1.5rem;
+  border: none;
+  border-radius: 0.75rem;
+  background-color: #f7a8b8;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.3s;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(212, 90, 122, 0.4);
+}
+
+option {
+  background-color: #fff;
+  color: #5b4a4a;
+}
+
+
+.tema {
+  background-color: #fff;
+  border-radius: 15px;
+  width: 100%;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.tema:hover {
+  transform: translateY(-3px);
+}
+
+.tema-header {
+  background-color: #f7a8b8;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  cursor: pointer;
+  border-radius: 15px 15px 0 0;
+}
+
+.arrow {
+  font-size: 1.3rem;
+  transition: transform 0.3s ease;
+}
+
+.tema-content {
+  background-color: #fff;
+  padding: 0 1rem;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.3s ease;
+}
+
+.tema.activo .tema-content {
+  max-height: 200px;
+  padding: 1rem;
+}
+
+.tema.activo .arrow {
+  transform: rotate(180deg);
+}

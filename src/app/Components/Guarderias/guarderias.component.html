@@ -1,0 +1,49 @@
+<app-header></app-header>
+
+<div class="guarderias-container">
+
+  <aside>
+    <h2>Guarderías</h2>
+    <ul>
+      <li *ngFor="let g of guarderias" (click)="seleccionar(g)">
+        {{ g.nombre }}
+      </li>
+    </ul>
+  </aside>
+
+  <section *ngIf="guarderiaSeleccionada">
+    <h2>{{ guarderiaSeleccionada.nombre }}</h2>
+
+    <p>{{ guarderiaSeleccionada.descripcion }}</p>
+    <p>📍 {{ guarderiaSeleccionada.direccion }}</p>
+    <p>📞 {{ guarderiaSeleccionada.telefono }}</p>
+    <p>⏰ {{ guarderiaSeleccionada.horario }}</p>
+
+    <h3>Comentarios</h3>
+
+    <ul>
+      <li *ngFor="let c of guarderiaSeleccionada.comentarios">
+        {{ '⭐'.repeat(c.calificacion) }} - {{ c.texto }}
+      </li>
+    </ul>
+
+    <form (ngSubmit)="agregarComentario()">
+      <textarea
+        [(ngModel)]="nuevoComentario"
+        name="comentario"
+        placeholder="Escribí tu comentario..."
+        required
+      ></textarea>
+
+      <select [(ngModel)]="nuevaCalificacion" name="calificacion" required>
+        <option value="">--Seleccionar--</option>
+        <option *ngFor="let n of [1,2,3,4,5]" [value]="n">
+          {{ '⭐'.repeat(n) }}
+        </option>
+      </select>
+
+      <button type="submit">Enviar</button>
+    </form>
+  </section>
+
+</div>

@@ -1,0 +1,63 @@
+<app-header></app-header>
+
+<main>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-text">
+      <h1 class="title">
+        Apoyamos a madres trabajadoras con soluciones de cuidado infantil accesibles y seguras
+      </h1>
+      <p class="subtitle">
+        En Uruguay, muchas madres enfrentan la dificultad de encontrar información clara sobre los servicios de cuidado infantil.
+        <strong>Cunina</strong> ofrece una guía completa sobre los procesos legales, los lugares de trámites y una lista de guarderías cercanas.
+      </p>
+      <div class="hero-buttons" *ngIf="!usuario">
+        <button routerLink="/login" class="btn-outline">Iniciar sesión</button>
+        <button routerLink="/register" class="btn-primary">Registrarse</button>
+      </div>
+      <div class="hero-buttons" *ngIf="usuario">
+        <button routerLink="/guarderias" class="btn-primary">Ver Guarderías</button>
+      </div>
+    </div>
+
+    <div class="hero-image">
+      <img src="assets/diseno-femenino.jpg" alt="Diseño femenino" />
+    </div>
+  </section>
+
+  <!-- Qué ofrece -->
+  <section class="project services" *ngIf="!usuario">
+    <h2>¿Qué ofrece nuestra aplicación?</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Guarderías cercanas</h3>
+        <p>Localización rápida y precisa de las guarderías más cercanas a tu hogar.</p>
+      </div>
+      <div class="card">
+        <h3>Guía legal</h3>
+        <p>Información clara sobre procesos de inscripción y requisitos legales.</p>
+      </div>
+      <div class="card">
+        <h3>Horarios y cupos</h3>
+        <p>Accede a horarios y cupos actualizados de manera sencilla.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bienvenida -->
+  <section class="project bienvenida" *ngIf="usuario">
+    <h2>Bienvenida, {{ usuario.nombre }} {{ usuario.apellido }}</h2>
+  </section>
+
+  <!-- Sobre nosotros -->
+  <section class="project sobre">
+    <h2>Sobre nosotros</h2>
+    <p>
+      El objetivo general del sistema es brindarle un lugar confiable y de fácil acceso donde las madres puedan asesorarse correctamente.
+    </p>
+  </section>
+</main>
+
+<footer class="footer">
+  <p>© 2025 Cunina - Apoyando a las madres del Uruguay</p>
+</footer>

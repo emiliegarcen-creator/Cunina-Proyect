@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600&display=swap');
+
+.form-container {
+  max-width: 400px;
+  margin: 4rem auto;
+  background: #ffe4ec;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 6px 20px rgba(255, 105, 180, 0.25);
+  font-family: 'Quicksand', sans-serif;
+  color: #4a4a4a;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #d81b60;
+  font-weight: 600;
+}
+
+/* Inputs */
+input {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  padding: 0.7rem 0.9rem;
+  margin-bottom: 1rem;
+  border: 1px solid #f8bbd0;
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  background-color: #fff;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input:focus {
+  outline: none;
+  border-color: #f06292;
+  box-shadow: 0 0 6px rgba(240, 98, 146, 0.4);
+}
+
+/* Botón */
+button {
+  width: 100%;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 0.75rem;
+  background: linear-gradient(135deg, #f48fb1, #ec407a);
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.3s;
+}
+
+button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(236, 64, 122, 0.4);
+}
+
+button:disabled {
+  background-color: #f8bbd0;
+  cursor: not-allowed;
+}
+
+/* Textos y enlaces */
+p {
+  text-align: center;
+  color: #6d1b3b;
+}
+
+a {
+  color: #ec407a;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Errores y mensajes */
+.error small {
+  color: #c62828;
+  display: block;
+  margin-top: -0.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.mensaje-error {
+  color: #c62828;
+  text-align: center;
+  margin-top: 1rem;
+}

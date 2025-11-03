@@ -1,0 +1,118 @@
+<app-header></app-header>
+
+<main class="page-container">
+  <div class="form-container">
+    <h1>Registro</h1>
+
+    <!-- FORMULARIO -->
+    <form (ngSubmit)="onSubmit(registerForm)" #registerForm="ngForm" novalidate>
+      <!-- Nombre -->
+      <label>Nombre</label>
+      <input
+        name="nombre"
+        [(ngModel)]="usuario.nombre"
+        placeholder="Nombre"
+        required
+        maxlength="20"
+        pattern="^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$"
+        #nombre="ngModel"
+      />
+      <div *ngIf="nombre.invalid && nombre.touched" class="error">
+        <small *ngIf="nombre.errors?.['required']">El nombre es obligatorio.</small>
+        <small *ngIf="nombre.errors?.['pattern']">Solo se permiten letras.</small>
+      </div>
+
+      <!-- Apellido -->
+      <label>Apellido</label>
+      <input
+        name="apellido"
+        [(ngModel)]="usuario.apellido"
+        placeholder="Apellido"
+        required
+        maxlength="20"
+        pattern="^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$"
+        #apellido="ngModel"
+      />
+      <div *ngIf="apellido.invalid && apellido.touched" class="error">
+        <small *ngIf="apellido.errors?.['required']">El apellido es obligatorio.</small>
+        <small *ngIf="apellido.errors?.['pattern']">Solo se permiten letras.</small>
+      </div>
+
+      <!-- Cédula -->
+      <label>Cédula</label>
+      <input
+        name="ci"
+        [(ngModel)]="usuario.ci"
+        placeholder="Cédula"
+        required
+        pattern="^[0-9]{1,8}$"
+        maxlength="8"
+        #ci="ngModel"
+      />
+      <div *ngIf="ci.invalid && ci.touched" class="error">
+        <small *ngIf="ci.errors?.['required']">La cédula es obligatoria.</small>
+        <small *ngIf="ci.errors?.['pattern']">Debe tener solo números (máx. 8).</small>
+      </div>
+
+      <!-- Teléfono -->
+      <label>Teléfono</label>
+      <input
+        name="telefono"
+        [(ngModel)]="usuario.telefono"
+        placeholder="Teléfono"
+        required
+        pattern="^[0-9]{1,9}$"
+        maxlength="9"
+        #telefono="ngModel"
+      />
+      <div *ngIf="telefono.invalid && telefono.touched" class="error">
+        <small *ngIf="telefono.errors?.['required']">El teléfono es obligatorio.</small>
+        <small *ngIf="telefono.errors?.['pattern']">Debe tener solo números (máx. 9).</small>
+      </div>
+
+      <!-- Correo -->
+      <label>Correo</label>
+      <input
+        type="email"
+        name="email"
+        [(ngModel)]="usuario.email"
+        placeholder="Correo Gmail"
+        required
+        email
+        #email="ngModel"
+      />
+      <div *ngIf="email.invalid && email.touched" class="error">
+        <small *ngIf="email.errors?.['required']">El correo es obligatorio.</small>
+        <small *ngIf="email.errors?.['email']">Ingrese un correo válido.</small>
+      </div>
+
+      <!-- Contraseña -->
+      <label>Contraseña</label>
+      <input
+        type="password"
+        name="password"
+        [(ngModel)]="usuario.password"
+        placeholder="Contraseña"
+        required
+        minlength="8"
+        pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*.,;:_?¿¡]).{8,}$"
+        #password="ngModel"
+      />
+      <div *ngIf="password.invalid && password.touched" class="error">
+        <small *ngIf="password.errors?.['required']">La contraseña es obligatoria.</small>
+        <small *ngIf="password.errors?.['minlength']">Debe tener al menos 8 caracteres.</small>
+        <small *ngIf="password.errors?.['pattern']">
+          Debe tener una mayúscula, un número y un carácter especial.
+        </small>
+      </div>
+
+      <!-- Botón -->
+      <button type="submit">Registrarme</button>
+
+    </form>
+
+    <p>¿Ya tenés cuenta? <a routerLink="/login">Iniciá sesión</a></p>
+
+    <div *ngIf="exito" class="mensaje-exito">¡Cuenta creada exitosamente!</div>
+  </div>
+</main>

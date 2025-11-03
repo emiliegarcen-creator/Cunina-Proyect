@@ -1,0 +1,19 @@
+<header class="navbar">
+  <div class="logo-container" routerLink="/">
+    <img src="assets/logo.png" alt="Logo de Cunina" class="logo" />
+    <h1 class="brand">Cunina</h1>
+  </div>
+
+  <nav class="nav-buttons">
+    <button routerLink="/" class="btn-outline">Inicio</button>
+
+    <!-- Botones visibles solo si NO hay usuario -->
+    <button routerLink="/login" *ngIf="!usuario" class="btn-outline">Iniciar Sesión</button>
+    <button routerLink="/register" *ngIf="!usuario" class="btn-primary">Registrarse</button>
+
+    <!-- Botones visibles solo si hay usuario logueado -->
+    <button routerLink="/guarderias" *ngIf="usuario" class="btn-primary">Guarderías</button>
+    <button routerLink="/perfil" *ngIf="usuario" class="btn-outline">Perfil</button>
+    <button (click)="logout()" *ngIf="usuario" class="btn-outline">Cerrar Sesión</button>
+  </nav>
+</header>
